@@ -1,5 +1,4 @@
 /* eslint-disable linebreak-style */
-// import  from'lodash';
 import './style.css';
 
 let tasks = [
@@ -82,9 +81,10 @@ function renderTasks() {
 
   taskItems.forEach((item) => {
     mainList.appendChild(item);
-    todoList.appendChild(mainList);
-    // todoList.appendChild(item);
   });
+
+  todoList.appendChild(firstBlock);
+  todoList.appendChild(mainList);
 
   // create button element
   const clearButton = document.createElement('button');
@@ -100,8 +100,6 @@ function renderTasks() {
   });
   // append the button to the end of the list
   todoList.appendChild(clearButton);
-
-  todoList.prepend(firstBlock);
 
   // add event listener to the form
   addList.addEventListener('submit', (event) => {
