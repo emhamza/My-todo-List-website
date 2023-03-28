@@ -14,7 +14,7 @@ let tasks = [
   },
 ];
 
-function renderTasks() {
+const renderTasks = () => {
   const todoList = document.getElementById('todo-list');
   const firstBlock = document.createElement('div');
   const title = document.createElement('h2');
@@ -117,6 +117,6 @@ function renderTasks() {
       renderTasks();
     }
   });
-}
+};
 
 renderTasks();
