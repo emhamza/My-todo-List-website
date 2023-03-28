@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
-// eslint-disable-next-line no-unused-vars
-import _ from 'lodash';
+// import  from'lodash';
 import './style.css';
 
 let tasks = [
@@ -53,7 +52,6 @@ function renderTasks() {
 
   const taskItems = sortedTasks.map((task) => {
     const item = document.createElement('li');
-    // item.classList.add('list-items');
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
