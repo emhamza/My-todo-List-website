@@ -49,6 +49,7 @@ function renderTasks() {
   firstBlock.appendChild(addList);
 
   const sortedTasks = tasks.sort((a, b) => a.index - b.index);
+  const mainList = document.createElement('ul');
 
   const taskItems = sortedTasks.map((task) => {
     const item = document.createElement('li');
@@ -80,7 +81,9 @@ function renderTasks() {
   });
 
   taskItems.forEach((item) => {
-    todoList.appendChild(item);
+    mainList.appendChild(item);
+    todoList.appendChild(mainList);
+    // todoList.appendChild(item);
   });
 
   // create button element

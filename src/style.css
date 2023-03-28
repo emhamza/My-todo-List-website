@@ -9,6 +9,10 @@ h1 {
   text-align: center;
 }
 
+ul {
+  padding-left: 0;
+}
+
 .list-container {
   background-color: #e4e4e4;
   height: 100vh;
@@ -85,7 +89,7 @@ h1 {
   height: 10vh;
   padding: 0;
   border: none;
-  color: #a7a8aa;
+  color: #858686;
 }
 
 .vertical-icon {
