@@ -71,7 +71,7 @@ ul {
 .arrow-symbol {
   border: none;
   background-color: #fff;
-  opacity: 60%;
+  color: #858686;
   padding-top: 1%;
   padding-bottom: 1%;
 }
@@ -93,7 +93,7 @@ ul {
 }
 
 .vertical-icon {
-  opacity: 35%;
+  color: #858686;
   padding-top: 1%;
   padding-bottom: 1%;
 }
