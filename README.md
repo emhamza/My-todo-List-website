@@ -63,9 +63,7 @@ This is my first project in which I have used webpack loaders and webpack dev se
  
 ### Key Features <a name="key-features"></a>
 
-- **[Usage of Dynamic desigin]**
 - **[Usage of createElement property]**
-- **[Use-of-HTML5 tools]**
 - **[Follow HTML, JS and CSS best practice]**
 - **[Dynamically designed]**
 - **[DOM Manipulation]**
