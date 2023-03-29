@@ -28,8 +28,7 @@ export default function renderTasks() {
   refreshIcon.classList.add('fas', 'fa-redo', 'fa-sm', 'fa-rotate', 'fa-rotate-300', 'refresh-icon');
   refreshIcon.addEventListener('click', () => {
     // reload the page when the icon is clicked
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
+    window.location.reload();
   });
 
   // append the title and the refresh icon to the firstBlock element
@@ -63,10 +62,16 @@ export default function renderTasks() {
       item.classList.toggle('completed');
     });
 
-    const description = document.createElement('span');
-    description.textContent = task.description;
+    const description = document.createElement('input');
+    description.value = task.description;
     description.classList.add('list-description');
     description.setAttribute('contenteditable', true); // make the task description editable
+
+    // save updated task description to localStorage on input change
+    description.addEventListener('input', () => {
+      task.description = description.value;
+      updateTasksIndex();
+    });
 
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-ellipsis-v', 'vertical-icon');
