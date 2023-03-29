@@ -1,11 +1,19 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable max-len */
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Getting data from local storage
 
 if (localStorage.getItem('tasks') !== null) {
   tasks = JSON.parse(localStorage.getItem('tasks'));
+}
+
+function updateTasksIndex() {
+  tasks.forEach((task, index) => {
+    task.index = index;
+  });
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 export default function renderTasks() {
@@ -62,13 +70,11 @@ export default function renderTasks() {
 
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-ellipsis-v', 'vertical-icon');
-
-    icon.addEventListener('click', () => { // add event listener to the ellipsis icon
-      const newDescription = description.textContent.trim(); // get the new task description
-      if (newDescription !== task.description) { // only update if the description has changed
-        task.description = newDescription;
-        localStorage.setItem('tasks', JSON.stringify(tasks)); // save the updated tasks array to localStorage
-      }
+    icon.addEventListener('click', () => {
+      const index = tasks.indexOf(task);
+      tasks.splice(index, 1);
+      updateTasksIndex();
+      item.remove();
     });
 
     item.appendChild(checkbox);
@@ -99,7 +105,7 @@ export default function renderTasks() {
     tasks = tasks.filter((task) => !task.completed);
     // re-render the list
     todoList.innerHTML = '';
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    updateTasksIndex();
     renderTasks();
   });
   // append the button to the end of the list
@@ -118,7 +124,7 @@ export default function renderTasks() {
       tasks.push(newTask);
       input1.value = '';
       todoList.innerHTML = '';
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+      updateTasksIndex();
       renderTasks();
     }
   });
