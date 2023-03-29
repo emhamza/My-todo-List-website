@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable max-len */
-
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Getting data from local storage
