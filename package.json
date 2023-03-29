@@ -1,7 +1,7 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "<a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
     "start": "webpack serve",
@@ -38,5 +38,6 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "webpack-dev-server": "^4.13.1"
-  }
+  },
+  "main": "webpack.config.js"
 }
