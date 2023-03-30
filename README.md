@@ -79,7 +79,7 @@ This is my first project in which I have used webpack loaders and webpack dev se
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- The Live Demo link will be available soon!
+- [<a href="https://emhamza.github.io/My-todo-List-website/" target="_blank">Online version</a>](#)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>

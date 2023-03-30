@@ -5,20 +5,20 @@
   "private": true,
   "scripts": {
     "start": "webpack serve",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emhamza/to-do-list.git"
+    "url": "git+https://github.com/emhamza/My-todo-List-website"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/emhamza/to-do-list/issues"
+    "url": "https://github.com/emhamza/My-todo-List-website/issues"
   },
-  "homepage": "https://github.com/emhamza/to-do-list#readme",
+  "homepage": "https://github.com/emhamza/My-todo-List-websitet",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
@@ -36,6 +36,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "lodash": "^4.17.21",
     "webpack-dev-server": "^4.13.1"
   },
