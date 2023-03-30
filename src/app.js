@@ -1,3 +1,5 @@
+import { toggleStatus, clearCompletedTasks } from './function.js';
+
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Getting data from local storage
@@ -54,9 +56,10 @@ export default function renderTasks() {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
-    checkbox.addEventListener('click', () => {
-      task.completed = checkbox.checked;
+    checkbox.addEventListener('change', () => {
+      toggleStatus(task);
       item.classList.toggle('completed');
+      localStorage.setItem('tasks', JSON.stringify(tasks));
     });
 
     const description = document.createElement('input');
@@ -103,13 +106,14 @@ export default function renderTasks() {
   clearButton.type = 'button';
   clearButton.textContent = 'Clear all completed';
   clearButton.addEventListener('click', () => {
-    // filter out completed tasks
-    tasks = tasks.filter((task) => !task.completed);
+    // filter out completed filter tasks
+    tasks = clearCompletedTasks(tasks);
     // re-render the list
     todoList.innerHTML = '';
     updateTasksIndex();
     renderTasks();
   });
+
   // append the button to the end of the list
   todoList.appendChild(clearButton);
 
