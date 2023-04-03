@@ -1,6 +1,6 @@
 import { toggleStatus, clearCompletedTasks } from './function.js';
 
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = [];
 
 // Getting data from local storage
 
