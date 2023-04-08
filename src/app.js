@@ -52,6 +52,7 @@ export default function renderTasks() {
 
   const taskItems = sortedTasks.map((task) => {
     const item = document.createElement('li');
+    item.draggable = true; // add draggable attribute to the list item element
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -76,10 +77,25 @@ export default function renderTasks() {
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-ellipsis-v', 'vertical-icon');
     icon.addEventListener('click', () => {
-      const index = tasks.indexOf(task);
-      tasks.splice(index, 1);
-      updateTasksIndex();
-      item.remove();
+      // remove the delete icon if it exists
+      let deleteIcon = item.querySelector('.delete-icon');
+      if (deleteIcon) {
+        deleteIcon.remove();
+        return;
+      }
+
+      // create delete icon element
+      deleteIcon = document.createElement('i');
+      deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+      deleteIcon.addEventListener('click', () => {
+        const index = tasks.indexOf(task);
+        tasks.splice(index, 1);
+        updateTasksIndex();
+        item.remove();
+      });
+
+      // append the delete icon to the item element
+      item.appendChild(deleteIcon);
     });
 
     item.appendChild(checkbox);
@@ -118,7 +134,7 @@ export default function renderTasks() {
   todoList.appendChild(clearButton);
 
   // add event listener to the form
-  addList.addEventListener('submit', (event) => {
+  function handleAddListSubmit(event) {
     event.preventDefault();
     const inputValue = input1.value.trim();
     if (inputValue) {
@@ -133,5 +149,7 @@ export default function renderTasks() {
       updateTasksIndex();
       renderTasks();
     }
-  });
+  }
+
+  addList.addEventListener('submit', handleAddListSubmit);
 }

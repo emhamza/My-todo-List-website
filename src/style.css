@@ -105,3 +105,15 @@ ul {
   padding-top: 2%;
   padding-bottom: 2%;
 }
+
+.delete-icon {
+  margin-left: 10px;
+  padding: 3px 5px;
+  font-size: 20px;
+  color: red;
+  transition: transform 0.2s ease-in-out;
+}
+
+.delete-icon:hover {
+  transform: translateX(2px);
+}
